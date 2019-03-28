@@ -461,12 +461,12 @@ Here is a detailed documentation of the classes in the package and how to use th
 
 | Sub-section | Description |
 |-|-|
-| [Loading Google AI's/OpenAI's pre-trained weigths](#loading-google-ai-or-openai-pre-trained-weigths-or-pytorch-dump) | How to load Google AI/OpenAI's pre-trained weight or a PyTorch saved instance |
+| [Loading Google AI's/OpenAI's pre-trained weights](#loading-google-ai-or-openai-pre-trained-weights-or-pytorch-dump) | How to load Google AI/OpenAI's pre-trained weight or a PyTorch saved instance |
 | [PyTorch models](#PyTorch-models) | API of the BERT, GPT, GPT-2 and Transformer-XL PyTorch model classes |
 | [Tokenizers](#tokenizers) | API of the tokenizers class for BERT, GPT, GPT-2 and Transformer-XL|
 | [Optimizers](#optimizerss) |  API of the optimizers |
 
-### Loading Google AI or OpenAI pre-trained weigths or PyTorch dump
+### Loading Google AI or OpenAI pre-trained weights or PyTorch dump
 
 To load one of Google AI's, OpenAI's pre-trained models or a PyTorch saved model (an instance of `BertForPreTraining` saved with `torch.save()`), the PyTorch model classes and the tokenizer can be instantiated as
 
@@ -1051,18 +1051,7 @@ You can download an [exemplary training corpus](https://ext-bert-sample.obs.eu-d
 Training one epoch on this corpus takes about 1:20h on 4 x NVIDIA Tesla P100 with `train_batch_size=200` and `max_seq_length=128`:
 
 
-```shell
-python run_lm_finetuning.py \
-  --bert_model bert-base-uncased \
-  --do_lower_case \
-  --do_train \
-  --train_file ../samples/sample_text.txt \
-  --output_dir models \
-  --num_train_epochs 5.0 \
-  --learning_rate 3e-5 \
-  --train_batch_size 32 \
-  --max_seq_length 128 \
-```
+Thank to the work of @Rocketknight1 and @tholor there are now **several scripts** that can be used to fine-tune BERT using the pretraining objective (combination of masked-language modeling and next sentence prediction loss). These scripts are detailed in the [`README`](./examples/lm_finetuning/README.md) of the [`examples/lm_finetuning/`](./examples/lm_finetuning/) folder.
 
 ### OpenAI GPT, Transformer-XL and GPT-2: running the examples
 
